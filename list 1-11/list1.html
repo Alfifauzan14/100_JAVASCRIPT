@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daftar Mobil</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+      li {
+        margin: 5px 0;
+      }
+      button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>📋 Daftar Mobil</h2>
+
+    <input id="mobilInput" placeholder="Masukkan nama mobil" />
+    <button onclick="tambahMobil()">Tambah</button>
+    <button onclick="hapusSemua()">Hapus Semua</button>
+
+    <ul id="daftarMobil"></ul>
+
+    <script>
+      const daftar = document.getElementById("daftarMobil");
+
+      function tambahMobil() {
+        const input = document.getElementById("mobilInput");
+        const namaMobil = input.value.trim();
+        if (namaMobil === "") {
+          alert("Masukkan nama mobil!");
+          return;
+        }
+
+        const li = document.createElement("li");
+        li.textContent = namaMobil;
+
+        const tombolHapus = document.createElement("button");
+        tombolHapus.textContent = "Hapus";
+        tombolHapus.onclick = () => li.remove();
+
+        li.appendChild(tombolHapus);
+        daftar.appendChild(li);
+        input.value = "";
+      }
+
+      function hapusSemua() {
+        daftar.innerHTML = "";
+      }
+    </script>
+  </body>
+</html>

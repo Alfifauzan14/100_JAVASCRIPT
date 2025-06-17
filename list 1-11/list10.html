@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Hari dalam Minggu</title></head>
+<body>
+  <h3>Hari dalam Seminggu</h3>
+  <ul id="hari"></ul>
+
+  <script>
+    const hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"];
+    const ul = document.getElementById("hari");
+    for (let h of hari) {
+      const li = document.createElement("li");
+      li.textContent = h;
+      ul.appendChild(li);
+    }
+  </script>
+</body>
+</html>

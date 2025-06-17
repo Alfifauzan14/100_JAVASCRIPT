@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simulasi Lampu Jalan</title>
+    <style>
+      .lampu {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 10px auto;
+        background-color: #999;
+      }
+      .kontainer {
+        width: 80px;
+        padding: 10px;
+        background: #333;
+        border-radius: 10px;
+        text-align: center;
+        margin: 20px auto;
+      }
+      #hasil {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      button {
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="text-align: center">Simulasi Lampu Jalan</h2>
+
+    <div class="kontainer">
+      <div id="merah" class="lampu"></div>
+      <div id="kuning" class="lampu"></div>
+      <div id="hijau" class="lampu"></div>
+    </div>
+
+    <div style="text-align: center">
+      <button onclick="ubahLampu('merah')">Merah</button>
+      <button onclick="ubahLampu('kuning')">Kuning</button>
+      <button onclick="ubahLampu('hijau')">Hijau</button>
+    </div>
+
+    <p id="hasil"></p>
+
+    <script>
+      function ubahLampu(warna) {
+        // Reset semua warna
+        document.getElementById("merah").style.backgroundColor = "#999";
+        document.getElementById("kuning").style.backgroundColor = "#999";
+        document.getElementById("hijau").style.backgroundColor = "#999";
+
+        let pesan = "";
+
+        if (warna === "merah") {
+          document.getElementById("merah").style.backgroundColor = "red";
+          pesan = "BERHENTI!";
+        } else if (warna === "kuning") {
+          document.getElementById("kuning").style.backgroundColor = "yellow";
+          pesan = "BERSIAP-SIAP!";
+        } else if (warna === "hijau") {
+          document.getElementById("hijau").style.backgroundColor = "green";
+          pesan = "JALAN!";
+        }
+
+        document.getElementById("hasil").textContent =
+          "Lampu " + warna.toUpperCase() + " menyala - " + pesan;
+      }
+    </script>
+  </body>
+</html>

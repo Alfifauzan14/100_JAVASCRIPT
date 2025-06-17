@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>List Nomor</title></head>
+<body>
+  <h3>List Nomor</h3>
+  <input id="isi" placeholder="Isi">
+  <button onclick="tambah()">Tambah</button>
+  <ol id="nomor"></ol>
+
+  <script>
+    function tambah() {
+      const isi = document.getElementById("isi").value;
+      const li = document.createElement("li");
+      li.textContent = isi;
+      document.getElementById("nomor").appendChild(li);
+      document.getElementById("isi").value = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cek Ganjil atau Genap</title>
+  </head>
+  <body>
+    <h2>Program Cek Ganjil atau Genap</h2>
+
+    <label for="angka">Masukkan bilangan bulat:</label>
+    <input type="number" id="angka" />
+    <button onclick="cekGanjilGenap()">Cek</button>
+
+    <p id="hasil"></p>
+
+    <script>
+      function cekGanjilGenap() {
+        const input = document.getElementById("angka").value;
+        const angka = parseInt(input);
+
+        if (isNaN(angka)) {
+          document.getElementById("hasil").textContent =
+            "Masukkan bilangan bulat yang valid!";
+          return;
+        }
+
+        if (angka % 2 === 0) {
+          document.getElementById("hasil").textContent =
+            angka + " adalah bilangan GENAP.";
+        } else {
+          document.getElementById("hasil").textContent =
+            angka + " adalah bilangan GANJIL.";
+        }
+      }
+    </script>
+  </body>
+</html>

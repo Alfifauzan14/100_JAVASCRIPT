@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Checklist Tanggal</title></head>
+<body>
+  <h3>Tugas + Tanggal</h3>
+  <input id="tugas">
+  <button onclick="tambah()">Tambah</button>
+  <ul id="list"></ul>
+
+  <script>
+    function tambah() {
+      const tugas = document.getElementById("tugas").value;
+      const tanggal = new Date().toLocaleDateString();
+      const li = document.createElement("li");
+      li.textContent = `${tugas} (${tanggal})`;
+      document.getElementById("list").appendChild(li);
+      document.getElementById("tugas").value = "";
+    }
+  </script>
+</body>
+</html>

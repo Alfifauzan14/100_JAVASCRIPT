@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hitung Diskon</title>
+  </head>
+  <body>
+    <h2>Program Hitung Harga Setelah Diskon</h2>
+
+    <label for="harga">Masukkan harga barang (Rp): </label>
+    <input type="number" id="harga" min="0" /><br /><br />
+
+    <label for="diskon">Masukkan diskon (%): </label>
+    <input type="number" id="diskon" min="0" max="100" /><br /><br />
+
+    <button onclick="hitungDiskon()">Hitung Harga Diskon</button>
+
+    <p id="hasil"></p>
+
+    <script>
+      function hitungDiskon() {
+        const harga = parseFloat(document.getElementById("harga").value);
+        const diskon = parseFloat(document.getElementById("diskon").value);
+
+        if (isNaN(harga) || harga < 0) {
+          document.getElementById("hasil").textContent =
+            "Masukkan harga yang valid!";
+          return;
+        }
+
+        if (isNaN(diskon) || diskon < 0 || diskon > 100) {
+          document.getElementById("hasil").textContent =
+            "Masukkan diskon antara 0% sampai 100%!";
+          return;
+        }
+
+        let hargaDiskon = harga - (harga * diskon) / 100;
+
+        document.getElementById(
+          "hasil"
+        ).textContent = `Harga setelah diskon: Rp ${hargaDiskon.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

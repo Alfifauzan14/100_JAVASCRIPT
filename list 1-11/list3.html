@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Daftar Belanja</title></head>
+<body>
+  <h3>Daftar Belanja</h3>
+  <input id="barang" placeholder="Barang">
+  <button onclick="tambahBarang()">Tambah</button>
+  <ul id="belanja"></ul>
+
+  <script>
+    function tambahBarang() {
+      const input = document.getElementById("barang");
+      const li = document.createElement("li");
+      li.textContent = input.value + " ";
+      const hapus = document.createElement("button");
+      hapus.textContent = "x";
+      hapus.onclick = () => li.remove();
+      li.appendChild(hapus);
+      document.getElementById("belanja").appendChild(li);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>

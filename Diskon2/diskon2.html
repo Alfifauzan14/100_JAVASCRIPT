@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diskon Kategori Pelanggan</title>
+  </head>
+  <body>
+    <h2>Hitung Diskon Berdasarkan Kategori Pelanggan</h2>
+
+    <label for="harga">Masukkan harga barang (Rp): </label>
+    <input type="number" id="harga" min="0" /><br /><br />
+
+    <label for="kategori">Pilih kategori pelanggan: </label>
+    <select id="kategori">
+      <option value="reguler">Reguler</option>
+      <option value="member">Member</option>
+      <option value="vip">VIP</option></select
+    ><br /><br />
+
+    <button onclick="hitungDiskonKategori()">Hitung Harga Diskon</button>
+
+    <p id="hasil"></p>
+
+    <script>
+      function hitungDiskonKategori() {
+        const harga = parseFloat(document.getElementById("harga").value);
+        const kategori = document.getElementById("kategori").value;
+
+        if (isNaN(harga) || harga < 0) {
+          document.getElementById("hasil").textContent =
+            "Masukkan harga yang valid!";
+          return;
+        }
+
+        let diskon = 0;
+
+        if (kategori === "reguler") {
+          diskon = 0;
+        } else if (kategori === "member") {
+          diskon = 10;
+        } else if (kategori === "vip") {
+          diskon = 20;
+        }
+
+        const hargaDiskon = harga - (harga * diskon) / 100;
+
+        document.getElementById("hasil").textContent = `Kategori: ${
+          kategori.charAt(0).toUpperCase() + kategori.slice(1)
+        } | Diskon: ${diskon}% | Harga setelah diskon: Rp ${hargaDiskon.toFixed(
+          2
+        )}`;
+      }
+    </script>
+  </body>
+</html>

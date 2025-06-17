@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bilangan Bulat</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h2>Cek Bilangan Bulat</h2>
+    <label for="angka">Masukkan bilangan bulat:</label>
+    <input type="number" id="angka" />
+    <button onclick="cekBilangan()">Cek</button>
+    <p id="hasil"></p>
+    <script>
+      function cekBilangan() {
+        const input = document.getElementById("angka").value;
+        const angka = parseInt(input);
+
+        const hasil = document.getElementById("hasil");
+        if (isNaN(angka)) {
+          hasil.textContent = "Harap masukkan bilangan bulat yang valid!";
+          return;
+        }
+
+        if (angka > 0) {
+          hasil.textContent = angka + " adalah bilangan POSITIF.";
+        } else if (angka === 0) {
+          hasil.textContent = "Bilangan tersebut adalah NOL.";
+        } else {
+          hasil.textContent = angka + " adalah bilangan NEGATIF.";
+        }
+      }
+    </script>
+  </body>
+</html>

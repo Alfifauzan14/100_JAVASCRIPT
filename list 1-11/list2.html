@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Tambah Item</title></head>
+<body>
+  <h3>Tambah ke List</h3>
+  <input id="item" placeholder="Tulis item">
+  <button onclick="tambah()">Tambah</button>
+  <ul id="daftar"></ul>
+
+  <script>
+    function tambah() {
+      const input = document.getElementById("item");
+      const ul = document.getElementById("daftar");
+      const li = document.createElement("li");
+      li.textContent = input.value;
+      ul.appendChild(li);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>

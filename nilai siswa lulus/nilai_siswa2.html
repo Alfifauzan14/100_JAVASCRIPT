@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cek Nilai Siswa</title>
+  </head>
+  <body>
+    <h2>Program Penilaian Siswa</h2>
+
+    <label for="nilai">Masukkan Nilai (0–100):</label>
+    <input type="number" id="nilai" min="0" max="100" />
+    <button onclick="cekNilai()">Cek</button>
+
+    <p id="hasil"></p>
+
+    <script>
+      function cekNilai() {
+        const nilai = parseFloat(document.getElementById("nilai").value);
+        const hasil = document.getElementById("hasil");
+
+        if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+          hasil.textContent = "Masukkan nilai antara 0 sampai 100!";
+          return;
+        }
+
+        let status, predikat;
+
+        if (nilai >= 85) {
+          status = "Lulus";
+          predikat = "A (Sangat Baik)";
+        } else if (nilai >= 70) {
+          status = "Lulus";
+          predikat = "B (Baik)";
+        } else if (nilai >= 60) {
+          status = "Lulus";
+          predikat = "C (Cukup)";
+        } else if (nilai >= 50) {
+          status = "Tidak Lulus";
+          predikat = "D (Kurang)";
+        } else {
+          status = "Tidak Lulus";
+          predikat = "E (Sangat Kurang)";
+        }
+
+        hasil.textContent = `Nilai: ${nilai} — ${status} dengan predikat ${predikat}`;
+      }
+    </script>
+  </body>
+</html>

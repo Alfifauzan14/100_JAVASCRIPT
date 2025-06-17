@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Penilaian Siswa Lengkap</title>
+  </head>
+  <body>
+    <h2>Program Penilaian 2</h2>
+    <label>Nama Siswa:</label>
+    <input type="text" id="nama" /><br /><br />
+
+    <label>Nilai:</label>
+    <input type="number" id="nilai2" min="0" max="100" /><br /><br />
+
+    <button onclick="cekNilai2()">Cek</button>
+    <p id="hasil2"></p>
+
+    <script>
+      function cekNilai2() {
+        const nama = document.getElementById("nama").value;
+        const nilai = parseFloat(document.getElementById("nilai2").value);
+        let status = "",
+          predikat = "";
+
+        if (isNaN(nilai) || nilai < 0 || nilai > 100 || nama.trim() === "") {
+          document.getElementById("hasil2").textContent =
+            "Masukkan nama dan nilai yang valid!";
+          return;
+        }
+
+        if (nilai >= 75) {
+          status = "Lulus";
+        } else {
+          status = "Tidak Lulus";
+        }
+
+        if (nilai >= 85) predikat = "A";
+        else if (nilai >= 75) predikat = "B";
+        else if (nilai >= 65) predikat = "C";
+        else predikat = "D";
+
+        document.getElementById(
+          "hasil2"
+        ).textContent = `Siswa ${nama} mendapatkan nilai ${nilai}, dengan predikat ${predikat} — ${status}.`;
+      }
+    </script>
+  </body>
+</html>

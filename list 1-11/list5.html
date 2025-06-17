@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>Acak Nama</title></head>
+<body>
+  <h3>Daftar Acak</h3>
+  <button onclick="acak()">Acak</button>
+  <ul id="list"></ul>
+
+  <script>
+    let nama = ["Andi", "Budi", "Cici", "Doni"];
+
+    function tampilkan() {
+      const ul = document.getElementById("list");
+      ul.innerHTML = "";
+      nama.forEach(n => {
+        const li = document.createElement("li");
+        li.textContent = n;
+        ul.appendChild(li);
+      });
+    }
+
+    function acak() {
+      nama.sort(() => Math.random() - 0.5);
+      tampilkan();
+    }
+
+    tampilkan();
+  </script>
+</body>
+</html>

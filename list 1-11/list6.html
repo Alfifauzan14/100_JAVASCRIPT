@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Pencarian List</title></head>
+<body>
+  <h3>Cari Buah</h3>
+  <input id="cari" oninput="filter()" placeholder="Cari...">
+  <ul id="daftar">
+    <li>Apel</li>
+    <li>Jeruk</li>
+    <li>Pisang</li>
+    <li>Melon</li>
+  </ul>
+
+  <script>
+    function filter() {
+      let input = document.getElementById("cari").value.toLowerCase();
+      let li = document.querySelectorAll("#daftar li");
+      li.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(input) ? "block" : "none";
+      });
+    }
+  </script>
+</body>
+</html>

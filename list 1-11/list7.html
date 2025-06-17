@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>List Terbalik</title></head>
+<body>
+  <h3>Nama Terbalik</h3>
+  <button onclick="balik()">Tampilkan</button>
+  <ul id="daftar"></ul>
+
+  <script>
+    const nama = ["Zaki", "Yusuf", "Wulan", "Rina"];
+
+    function balik() {
+      const ul = document.getElementById("daftar");
+      ul.innerHTML = "";
+      nama.slice().reverse().forEach(n => {
+        const li = document.createElement("li");
+        li.textContent = n;
+        ul.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

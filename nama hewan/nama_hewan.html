@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Klasifikasi Hewan dengan IF</title>
+  </head>
+  <body>
+    <h2>Masukkan Nama Hewan</h2>
+
+    <input type="text" id="hewan" placeholder="Contoh: Kucing" />
+    <button onclick="cekHewan()">Cek Jenis Hewan</button>
+
+    <p id="hasil"></p>
+
+    <script>
+      function cekHewan() {
+        const input = document
+          .getElementById("hewan")
+          .value.toLowerCase()
+          .trim();
+        let hasil = "";
+
+        if (input === "kucing" || input === "anjing" || input === "harimau") {
+          hasil = "Hewan ini adalah Mamalia.";
+        } else if (
+          input === "elang" ||
+          input === "merpati" ||
+          input === "burung"
+        ) {
+          hasil = "Hewan ini adalah Burung.";
+        } else if (input === "ikan" || input === "hiu" || input === "lele") {
+          hasil = "Hewan ini adalah Ikan.";
+        } else if (
+          input === "kura-kura" ||
+          input === "ular" ||
+          input === "buaya"
+        ) {
+          hasil = "Hewan ini adalah Reptil.";
+        } else if (input === "katak" || input === "kodok") {
+          hasil = "Hewan ini adalah Amfibi.";
+        } else {
+          hasil = "Jenis hewan tidak dikenali.";
+        }
+
+        document.getElementById("hasil").textContent = hasil;
+      }
+    </script>
+  </body>
+</html>

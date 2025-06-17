@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cek Ukuran Celana</title>
+  </head>
+  <body>
+    <h2>Cek Ukuran Celana</h2>
+
+    <label for="pinggang">Masukkan lingkar pinggang (cm):</label>
+    <input type="number" id="pinggang" placeholder="Contoh: 80" />
+    <button onclick="cekUkuranCelana()">Cek</button>
+
+    <p id="hasil"></p>
+
+    <script>
+      function cekUkuranCelana() {
+        const pinggang = parseFloat(document.getElementById("pinggang").value);
+        let ukuran = "";
+
+        if (isNaN(pinggang) || pinggang <= 0) {
+          ukuran = "Masukkan angka lingkar pinggang yang valid!";
+        } else if (pinggang < 70) {
+          ukuran = "Ukuran: S (Small)";
+        } else if (pinggang >= 70 && pinggang < 80) {
+          ukuran = "Ukuran: M (Medium)";
+        } else if (pinggang >= 80 && pinggang < 90) {
+          ukuran = "Ukuran: L (Large)";
+        } else if (pinggang >= 90 && pinggang < 100) {
+          ukuran = "Ukuran: XL (Extra Large)";
+        } else {
+          ukuran = "Ukuran: XXL (Double Extra Large)";
+        }
+
+        document.getElementById("hasil").textContent = ukuran;
+      }
+    </script>
+  </body>
+</html>

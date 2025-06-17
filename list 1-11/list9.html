@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>Filter Huruf Awal</title></head>
+<body>
+  <h3>Filter Huruf Awal</h3>
+  <input id="filter" placeholder="Masukkan huruf...">
+  <button onclick="filterHuruf()">Tampilkan</button>
+  <ul id="output"></ul>
+
+  <script>
+    const nama = ["Ayu", "Budi", "Ani", "Citra", "Asep"];
+
+    function filterHuruf() {
+      const awal = document.getElementById("filter").value.toLowerCase();
+      const hasil = nama.filter(n => n.toLowerCase().startsWith(awal));
+      const ul = document.getElementById("output");
+      ul.innerHTML = "";
+      hasil.forEach(n => {
+        const li = document.createElement("li");
+        li.textContent = n;
+        ul.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

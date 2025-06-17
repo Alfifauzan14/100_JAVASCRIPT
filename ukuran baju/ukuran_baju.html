@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cek Ukuran Baju</title>
+  </head>
+  <body>
+    <h2>Cek Ukuran Baju</h2>
+
+    <label for="dada">Masukkan lingkar dada (cm):</label>
+    <input type="number" id="dada" placeholder="Contoh: 92" />
+    <button onclick="cekUkuranBaju()">Cek</button>
+
+    <p id="hasil"></p>
+
+    <script>
+      function cekUkuranBaju() {
+        const dada = parseFloat(document.getElementById("dada").value);
+        let ukuran = "";
+
+        if (isNaN(dada) || dada <= 0) {
+          ukuran = "Masukkan angka lingkar dada yang valid!";
+        } else if (dada < 85) {
+          ukuran = "Ukuran: S (Small)";
+        } else if (dada >= 85 && dada < 95) {
+          ukuran = "Ukuran: M (Medium)";
+        } else if (dada >= 95 && dada < 105) {
+          ukuran = "Ukuran: L (Large)";
+        } else if (dada >= 105 && dada < 115) {
+          ukuran = "Ukuran: XL (Extra Large)";
+        } else {
+          ukuran = "Ukuran: XXL (Double Extra Large)";
+        }
+
+        document.getElementById("hasil").textContent = ukuran;
+      }
+    </script>
+  </body>
+</html>

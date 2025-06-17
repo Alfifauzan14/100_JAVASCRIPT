@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mini ATM</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+        max-width: 400px;
+        margin: auto;
+      }
+      button {
+        margin: 5px 0;
+      }
+      input {
+        margin-bottom: 10px;
+      }
+      #saldoBox {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>💳 Mini ATM</h2>
+
+    <p id="saldoBox">Saldo Anda: Rp <span id="saldo">100000</span></p>
+
+    <input type="number" id="jumlah" placeholder="Masukkan jumlah" /><br />
+
+    <button onclick="setor()">Setor</button>
+    <button onclick="tarik()">Tarik Tunai</button>
+    <button onclick="cekSaldo()">Cek Saldo</button>
+
+    <p id="pesan"></p>
+
+    <script>
+      let saldo = 100000;
+
+      function setor() {
+        let jumlah = parseFloat(document.getElementById("jumlah").value);
+        if (isNaN(jumlah) || jumlah <= 0) {
+          tampilkanPesan("Masukkan jumlah yang valid untuk setor.");
+          return;
+        }
+        saldo += jumlah;
+        updateSaldo();
+        tampilkanPesan("Setor berhasil: Rp " + jumlah);
+      }
+
+      function tarik() {
+        let jumlah = parseFloat(document.getElementById("jumlah").value);
+        if (isNaN(jumlah) || jumlah <= 0) {
+          tampilkanPesan("Masukkan jumlah yang valid untuk tarik tunai.");
+          return;
+        }
+        if (jumlah > saldo) {
+          tampilkanPesan("Saldo tidak cukup!");
+          return;
+        }
+        saldo -= jumlah;
+        updateSaldo();
+        tampilkanPesan("Tarik tunai berhasil: Rp " + jumlah);
+      }
+
+      function cekSaldo() {
+        tampilkanPesan("Saldo saat ini: Rp " + saldo);
+      }
+
+      function updateSaldo() {
+        document.getElementById("saldo").textContent = saldo;
+      }
+
+      function tampilkanPesan(teks) {
+        document.getElementById("pesan").textContent = teks;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Toggle</title>
+</head>
+  <style>
+    body{
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+      transition: background-color 0.3, color 0.3;
+    }
+
+    button{
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: blue;
+      color: white;
+    }
+    body.dark{
+      background-color: black;
+      color: white;
+    }
+    body.dark button{
+      background-color: white;
+      color: black;
+    }
+  </style>
+<body>
+    <h1>Dark Mode Toggle</h1>
+    <button id="toggle">Dark Mode</button>
+  <script src="dark.js"></script>
+</body>
+</html>

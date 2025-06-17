@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cek Ukuran Sepatu</title>
+  </head>
+  <body>
+    <h2>Cek Kategori Ukuran Sepatu</h2>
+
+    <label for="ukuran">Masukkan ukuran sepatu:</label>
+    <input type="number" id="ukuran" placeholder="Contoh: 40" />
+    <button onclick="cekUkuran()">Cek</button>
+
+    <p id="hasil"></p>
+
+    <script>
+      function cekUkuran() {
+        const ukuran = parseInt(document.getElementById("ukuran").value);
+        let hasil = "";
+
+        if (isNaN(ukuran) || ukuran <= 0) {
+          hasil = "Masukkan ukuran sepatu yang valid!";
+        } else if (ukuran < 36) {
+          hasil = "Ukuran KECIL (anak-anak)";
+        } else if (ukuran >= 36 && ukuran <= 40) {
+          hasil = "Ukuran SEDANG (remaja / wanita dewasa)";
+        } else if (ukuran > 40 && ukuran <= 44) {
+          hasil = "Ukuran BESAR (pria dewasa)";
+        } else {
+          hasil = "Ukuran EKSTRA BESAR";
+        }
+
+        document.getElementById("hasil").textContent = hasil;
+      }
+    </script>
+  </body>
+</html>
